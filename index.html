@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-framework="es6">
+
+<head>
+	<meta charset="utf-8">
+	<title>Bootstrap INIT</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+	<link rel="stylesheet" href="/css/style3.css">
+
+</head>
+
+<body>
+
+	<br><br>
+	<div class="main">
+		<div class="row">
+			<div class="col-lg-3 col-sm-4">
+				<div class="form-group">
+					<label for="input1" class="bmd-label-floating">First name</label>
+					<input id="input1" type="text" class="my-form-control">
+					<span class="bmd-help">We'll never share your First name with anyone else.</span>
+
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-4">
+				<div class="form-group">
+					<label for="input2" class="bmd-label-floating">Last name</label>
+					<input id="input2" type="text" class="my-form-control">
+					<span class="form-control-feedback">
+						<i class="fas fa-check"></i>
+					</span>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-4">
+				<div class="form-group">
+					<div class="container">
+						
+							<span class="icon-input">
+								<i class="fas fa-user-tie"></i>
+							</span>
+						
+						<input type="text" class="my-form-control" placeholder="With Material Icons">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var elements = document.getElementsByClassName("my-form-control");
+
+		function testValid(value) {
+
+			if (value == "abc") {
+				return true;
+			} else {
+				console.log(value);
+				return false;
+			}
+
+		}
+
+		[].forEach.call(document.querySelectorAll(".my-form-control"), function (elem) {
+			elem.value = "";
+			elem.addEventListener("click", function (event) {
+				var current = document.getElementsByClassName("active");
+				if (current.length > 0) {
+					current[0].className = current[0].className.replace(" active", "");
+				}
+				elem.parentElement.className += " active";
+			});
+			elem.addEventListener("blur", function (event) {
+
+				elem.parentElement.className = elem.parentElement.className.replace(" active", "");
+
+				if (elem.value.length == 0) {
+					elem.parentElement.classList.remove("not-valid");
+					elem.parentElement.classList.remove("is-valid");
+				} else {
+					if (testValid(elem.value)) {
+						if (!elem.parentElement.classList.contains("is-valid")) {
+							elem.parentElement.classList.add("is-valid");
+
+						}
+						if (elem.parentElement.classList.contains("not-valid")) {
+							elem.parentElement.classList.remove("not-valid");
+						}
+					} else {
+						if (elem.parentElement.classList.contains("is-valid")) {
+							elem.parentElement.classList.remove("is-valid");
+
+						}
+						if (!elem.parentElement.classList.contains("not-valid")) {
+							elem.parentElement.classList.add("not-valid");
+						}
+					}
+				}
+
+			});
+			elem.addEventListener("change", function (event) {
+
+				if (elem.value.length > 0) {
+
+					if (!elem.parentElement.classList.contains("is-filled")) elem.parentElement.classList.add("is-filled");
+				} else {
+					if (elem.parentElement.classList.contains("is-filled")) elem.parentElement.classList.remove("is-filled");
+				}
+
+			});
+		});
+
+
+
+
+	</script>
+	<script src="/js/jquery/jquery.min.js" />
+	<script src ="/js/bootstrap/bootstrap.min.js" />
+	<script src="/node_modules/@fortawesome/fontawesome-free/js/all.js"/>
+</body>
+
+</html>

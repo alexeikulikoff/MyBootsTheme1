@@ -1,0 +1,117 @@
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+body{
+	font-size : 1rem;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	font-weight: 300;
+	line-height: 1.5em;
+}
+.main{
+	margin-left : 30px;
+}
+.form-group{
+  margin-bottom : 24px;
+ 
+  position : relative;
+ 
+}
+.bmd-form-group{
+    padding-top : 27px;
+}
+.my-form-control{
+
+  display : block;
+  width : 100%;
+  padding-top : 1.675rem;
+  padding-bottom : 0.333rem;
+  background-image : linear-gradient(to top, rgb(240,30,30) 2px, rgba(156,39,176,0) 1px);
+  background-position-x : center;
+  background-position-y : bottom;
+  background-repeat : no-repeat;
+  background-origin : padding-box;
+  background-clip: border-box;
+  background-size : 0% 100%;
+  border : none;
+  border-bottom : 1px solid  rgb(160, 167, 156);
+  
+}
+.my-form-control:focus{
+   background-size : 100% 100%;
+   transition-duration: 0.3s;
+}
+
+label{
+	display : inline-block;
+}
+.bmd-label-floating{
+  	color: #AAAAAA;
+  	position: absolute;
+	will-change: left, top, contents;
+	margin: 0;
+	line-height: 1.4;
+	font-weight: 400;
+	font-size: 0.875rem;
+  	top: 1.6rem;
+	pointer-events: none;
+	transition: 0.3s ease all;
+}
+.active .bmd-label-floating, .is-filled .bmd-label-floating{
+	top : 0.2rem;
+	font-size : 0.8rem;
+}
+.bmd-help{
+	position : absolute;
+	display : none;
+	font-weight: normal;
+	
+}
+.form-group .bmd-help{
+	margin-top: 0;
+	font-size: 0.75rem;	
+	
+}
+
+.form-group.active .bmd-help{
+	display : block;
+	
+}
+.has-success .form-control-feedback {
+    color:  #4caf50;
+    opacity: 1;
+}
+
+.form-control-feedback {
+    position: absolute;
+	display : none;
+    top: 1.75rem;
+    right: 0;
+    z-index: 2;
+  
+}
+.is-valid .form-control-feedback{
+	display : block;
+	color : green;
+}
+.not-valid .form-control-feedback{
+	display : block;
+	color : rgb(239, 41, 41);
+}
+.red{
+	color : red;
+}
+.green{
+	color : green;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.icon-input{
+	padding-top : 1.25rem;
+	padding-right : 12px;
+}

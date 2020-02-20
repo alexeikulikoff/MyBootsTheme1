@@ -1,0 +1,11 @@
+
+@import "mixins";
+
+
+
+.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}
+
