@@ -1,6 +1,14 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 @import "alina-kit/variables";
 @import "alina-kit/mixins";
 
+
+ // Core Components
+
+@import "alina-kit/main";
+@import "alina-kit/buttons";
 @import "alina-kit/forms";
+
+
 

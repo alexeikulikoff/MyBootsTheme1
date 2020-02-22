@@ -1,11 +1,27 @@
 
-@import "mixins";
+
+.amazing-input{
+
+	  display : block;
+	  width : 100%;
+	  @include mix-amazing-input-padding($amazing-input-padding-top, $amazing-input-padding-bottom);
+	  @include mix-amazing-input-linear-gradient($amazing-input-linear-gradient);
 
 
+	  background-position-x : center;
+	  background-position-y : bottom;
+	  background-repeat : no-repeat;
+	  background-origin : padding-box;
+	  background-clip: border-box;
+	  background-size : 0% 100%;
+	  border : none;
+	  border-bottom : 1px solid  rgb(160, 167, 156);
 
-.page-title {
-  @include large-text;
-  padding: 4px;
-  margin-top: 10px;
+	 &:focus{
+		 background-size : 100% 100%;
+  		 transition-duration: 0.3s;
+		}
+  
 }
+
 

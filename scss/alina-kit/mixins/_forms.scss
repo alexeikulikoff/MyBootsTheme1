@@ -1,11 +1,9 @@
 
-
-@mixin large-text {
-  font: {
-    family: Arial;
-    size: 20px;
-    weight: bold;
-  }
-  color: #ff0000;
+@mixin mix-amazing-input-linear-gradient( $linear_gradient ){
+	 background-image : $linear_gradient;
 }
 
+@mixin mix-amazing-input-padding( $top, $bottom ){
+  	  padding-top : $top;
+	  padding-bottom : $bottom;
+}	

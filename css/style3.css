@@ -18,10 +18,9 @@ body{
   position : relative;
  
 }
-.bmd-form-group{
-    padding-top : 27px;
-}
-.my-form-control{
+
+
+.amazing-input{
 
   display : block;
   width : 100%;
@@ -38,7 +37,7 @@ body{
   border-bottom : 1px solid  rgb(160, 167, 156);
   
 }
-.my-form-control:focus{
+.amazing-input:focus{
    background-size : 100% 100%;
    transition-duration: 0.3s;
 }
@@ -62,19 +61,19 @@ label{
 	top : 0.2rem;
 	font-size : 0.8rem;
 }
-.bmd-help{
+.input-assist{
 	position : absolute;
 	display : none;
 	font-weight: normal;
 	
 }
-.form-group .bmd-help{
+.form-group .input-assist{
 	margin-top: 0;
 	font-size: 0.75rem;	
 	
 }
 
-.form-group.active .bmd-help{
+.form-group.active .input-assist{
 	display : block;
 	
 }
