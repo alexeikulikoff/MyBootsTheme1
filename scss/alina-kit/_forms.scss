@@ -168,6 +168,26 @@ input{
     	font-weight: 400;
 	}
 	.form-checkbox-input{
+		&:checked + {
+			.circle{
+				&:before{
+					animation: rippleOn .5s;
+				}
+				.check {
+						&:before{
+					 color:  #FFFFFF;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+    animation: checkboxOn 0.3s forwards;
+					}
+				}
+			}
+		}	
+		&:checked ~ {
+			.check,
+			.circle{
+				 opacity: 1;
+			}
+		}
 		&:checked~ {
 			.circle { 
 				.check {
@@ -184,13 +204,6 @@ input{
 }
 
 
-.form-checkbox .form-checkbox-input:checked ~ .check, .form-checkbox .form-checkbox-input:checked ~ .circle {
-    opacity: 1;
-}
-
-.form-checkbox .form-checkbox-label .form-checkbox-input:checked + .circle::before {
-    animation: rippleOn .5s;
-}
 .form-checkbox .form-checkbox-label .form-checkbox-input:checked + .circle .check::before {
     color:  #FFFFFF;
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
