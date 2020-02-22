@@ -4,8 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>INDEX_2</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/style3.css">
 
 </head>
 
@@ -17,7 +18,7 @@
 			<div class="col-lg-3 col-sm-4">
 				<div class="form-group">
 					<label for="input1" class="bubble-label">First name</label>
-					<input id="input1" type="text" class="my-form-control">
+					<input id="input1" type="text" class="amazing-input">
 					<span class="input-assist">We'll never share your First name with anyone else.</span>
 
 				</div>
@@ -25,7 +26,7 @@
 			<div class="col-lg-3 col-sm-4">
 				<div class="form-group">
 					<label for="input2" class="bubble-label">Last name</label>
-					<input id="input2" type="text" class="my-form-control">
+					<input id="input2" type="text" class="amazing-input">
 					<span class="form-control-success">
 						<i class="fas fa-check"></i>
 					</span>
@@ -39,7 +40,7 @@
 							<i class="fas fa-user-tie"></i>
 						</span>
 
-						<input type="text" class="my-form-control" placeholder="With Material Icons"/>
+						<input type="text" class="amazing-input" placeholder="With Material Icons"/>
 					</div>
 				</div>
 			</div>
@@ -68,7 +69,7 @@
 		</div>
 	</div>
 	<script>
-		var elements = document.getElementsByClassName("my-form-control");
+		var elements = document.getElementsByClassName("amazing-input");
 
 		function testValid(value) {
 
@@ -81,7 +82,7 @@
 
 		}
 
-		[].forEach.call(document.querySelectorAll(".my-form-control"), function (elem) {
+		[].forEach.call(document.querySelectorAll(".amazing-input"), function (elem) {
 			elem.value = "";
 			elem.addEventListener("click", function (event) {
 				var current = document.getElementsByClassName("active");

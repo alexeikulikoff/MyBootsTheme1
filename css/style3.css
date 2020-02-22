@@ -57,7 +57,11 @@ label{
 	pointer-events: none;
 	transition: 0.3s ease all;
 }
-.active .bubble-label, .is-filled .bubble-label{
+.active .bubble-label {
+	top : 0.2rem;
+	font-size : 0.8rem;
+}
+ .is-filled .bubble-label{
 	top : 0.2rem;
 	font-size : 0.8rem;
 }

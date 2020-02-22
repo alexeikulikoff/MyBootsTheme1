@@ -7,3 +7,21 @@
   	  padding-top : $top;
 	  padding-bottom : $bottom;
 }	
+
+@mixin mix-amazing-input-background-size( $background-size ){
+	 background-size : $background-size;
+}
+
+@mixin mix-amazing-input-background(){
+	  background-position-x : center;
+	  background-position-y : bottom;
+	  background-repeat : no-repeat;
+	  background-origin : padding-box;
+	  background-clip: border-box;
+	  @include mix-amazing-input-background-size($bg-size_0_100);
+	 
+}
+@mixin mix-amazing-input-border(){
+	 border : none;
+	 border-bottom : 1px solid  rgb(160, 167, 156);
+}	

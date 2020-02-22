@@ -1,0 +1,31 @@
+
+label{
+	display : inline-block;
+}
+.bubble-label{
+  	color: $bubble-label-color;
+  	position: absolute;
+	will-change: left, top, contents;
+	margin: 0;
+	line-height: 1.4;
+	font-weight: 400;
+	font-size: 0.875rem;
+  	top: 1.6rem;
+	pointer-events: none;
+	transition: 0.3s ease all;
+}
+.active {
+	.bubble-label
+	{
+		top : 0.2rem;
+		font-size : 0.8rem;
+	}
+}
+.is-filled { 
+	.bubble-label
+	{
+		top : 0.2rem;
+		font-size : 0.8rem;
+	}
+}
+
