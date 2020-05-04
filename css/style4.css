@@ -1,5 +1,77 @@
-label {
-  display: block;
-  margin-bottom: 0.5rem;
+body {
+  height: 100vh;
+}
+div.vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.center {
+	position: relative;
+	left: 50%;
+
+}
+.alive-span{
+	display : inline-block;
+	
+}
+.cover-span{
+	display : none;
+	transition: display 1s;
+	
+}
+.alive-button-group{
+	position : relative;
+	width : 250px;
+}
+.alive-button{
+	text-align: center;
+	display: block;
+	position : absolute;
+	top : 0;
+	left : 0;
+	width : 100%;
+	z-index : -1;
+	padding-top : 1rem;
+	padding-bottom : 1rem;
+	background : #fefefe;
+	color : red;
+	border : 2px solid red;
+	box-shadow: 3px 3px rgb(186, 189, 182);
+	user-select : none;
+	
+}
+.cover-button{
+	text-align: center;
+	position : absolute;
+	top : 0;
+	left : 0;
+	width : 0;
+	
+	display: inline-block;
+	padding-top : 1.5rem;
+	padding-bottom : 1.5rem;
+	border : 2px solid rgb(239, 41, 41);
+	color : rgb(239, 41, 41);
+	z-index : 20;
+	transition: width 0.35s;
+	background : rgb(239, 41, 41);
+}
+.alive-button-group:active {
+	padding-bottom : 0.25rem;
+	padding-top : 0.25rem;
 }
 
+.cover-button:hover .cover-span{
+	display : block;
+}
+.alive-button:hover + .cover-button > .cover-span{
+	display : block;
+}
+.alive-button:hover + .cover-button, .cover-button:hover  {
+	border : 2px solid rgb(239, 41, 41);
+	width : 100%;
+	padding-top : 1rem;
+	padding-bottom : 1rem;
+	color : rgb(238, 238, 236);
+}

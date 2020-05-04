@@ -6,105 +6,42 @@
 	<title>Bootstrap INIT</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
-	<link rel="stylesheet" href="/css/style4.css">
+	<link rel="stylesheet" href="/css/style3.css">
 
 </head>
 
 <body>
-
-
-
-<template id="book-template">
-  <li><span class="title"></span> &mdash; <span class="author"></span></li>
-</template>
-
-<template id="book-template-2">
-  <li><span class="author"></span>'s classic novel <span class="title"></span></li>
-</template>
-
-<ul id="books"></ul>
-
-<fieldset id="templates">
-  <legend>Choose template</legend>
-  
-  <label>
-    <input type="radio" name="template" value="book-template" checked> Template One
-  </label>
-  <label>
-    <input type="radio" name="template" value="book-template-2"> Template Two
-  </label>
-</fieldset>
-
-
-
-
-<my-component ></my-component>
-
-
-<div id="example">This will use the CSS background</div>
-<button id="button">Not tomato</button>
-
-
-
-
-<script>
-
-'use strict';
-
-const books = [
-  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
-  { title: 'A Farewell to Arms', author: 'Ernest Hemingway' },
-  { title: 'Catch 22', author: 'Joseph Heller' }
-];
-
-function appendBooks(templateId) {
-  const booksList = document.getElementById('books');
-  const fragment = document.getElementById(templateId);
-  
-  // Clear out the content from the ul
-  booksList.innerHTML = '';
-  
-  // Loop over the books and modify the given template
-  books.forEach(book => {
-    // Create an instance of the template content
-    const instance = document.importNode(fragment.content, true);
-    // Add relevant content to the template
-    instance.querySelector('.title').innerHTML = book.title;
-    instance.querySelector('.author').innerHTML = book.author;
-    // Append the instance ot the DOM
-    booksList.appendChild(instance);
-  });  
-}
-
-
-document.getElementById('templates').addEventListener('change', (event) => appendBooks(event.target.value));
-
-appendBooks('book-template');
-
-
-const shadowRoot = document.getElementById('example').attachShadow({ mode: 'open' });
-shadowRoot.innerHTML = `<style>
-button {
-  background: tomato;
-  color: white;
-}
-</style>
-<button id="button"><slot></slot> tomato</button>`;
-
-
-class MyComponent extends HTMLElement {
-  connectedCallback() {
-
-	var text = this.hasAttribute('text') ? this.getAttribute('text') : 'hello world';
-
-    this.innerHTML = `<h1>${text}</h1>`;
-
-  }
-}
-
-window.customElements.define('my-component', MyComponent);
-
-</script>
+	<div class="main">
+		<div class="row">
+			<div class="col-lg-3 col-sm-4">
+				 <div class="check-wrapper">
+					<label class="checkbox-label">Here we are</label>
+					<input type="checkbox" class="checkbox-input" id="check1" name="check1"  checked/>
+					<span class="checkbox-text">Checkbox -1</span>
+				 </div>
+			 	<div class="check-wrapper">	
+					<label class="checkbox-label">Here we are</label>
+					<input type="checkbox" class="checkbox-input"  id="check2" name="check2"  checked/>
+					<span class="checkbox-text">Checkbox -1</span>
+				 </div>
+			</div>
+			<div class="col-lg-6 col-sm-6">
+			 <div class="input-group">
+			  <div class="input-wrapper">
+				<span class="input-icon"><i class="fab fa-angellist"></i></i></span>
+				<input type="text" name="input1" class="custom-input" />
+				<button type="button" class="input-button" >Press me </button>
+				<label class="input-label">Here we are</label>
+			  </div>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-sm-4">	
+		
+			</div>
+		</div>		
+	</div>
 </body>
 
 </html>
