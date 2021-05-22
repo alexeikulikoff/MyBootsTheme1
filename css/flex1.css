@@ -1,0 +1,46 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+}
+
+.header{
+  flex: 0 0 50px;
+  background: #95A5A6;
+}
+
+.content-body{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-body .content{
+  flex: 1 1 auto;
+  overflow: auto;
+  background: #1ABC9C;
+}
+
+.content-body .sidenav{
+  order: -1;
+  flex: 0 0 100px;
+  overflow: auto;
+  background: #E74C3C;
+}
+
+.content-body .ads{
+  flex: 0 0 100px;
+  overflow: auto;
+  background: #E67E22;
+}
+
+.footer{
+  flex: 0 0 50px;
+  background: #34495E;
+}

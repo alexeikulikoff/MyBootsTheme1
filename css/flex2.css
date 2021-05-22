@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.my-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 100vh;
+}
+
+.menu-nav {
+	flex: 0 0 11.8470652%;
+	border: 1px solid red;
+	height: 100vh;
+}
+
+.content {
+	flex: 1 1 auto;
+	border: 1px solid green;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.content .header {
+	flex: 0 0 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	background: #eeeeec;
+}
+
+.content .main {
+	flex: 1 1 auto;
+	background: #fce94f;
+}
+
+.content .footer {
+	flex: 0 0 30px;
+	background: #d3d7cf;
+}
+
+.navbar-control-left{
+	float: left;
+	padding: 4px 12px;
+}
+
+.navbar-control-right{
+	float: right;
+}
+
+.nav.navbar-control-right > li > a {
+
+    color: #999c9e;
+    padding: 20px 10px;
+	min-height: 50px;
+}
+
+.nvbar-control-button{
+	float: left;
+}
+.navbar-input-control{
+	display: blok;
+	height: 50px;
+	width: 200px;
+	float: left;
+}
+.input-control{
+	display: blok;
+	width: 100%;
+	border: none;
+	background: inherit;
+	
+}
+
+.input-control:focus{
+	 outline: none;
+	
+}
+
+
+
+
+
+
+
