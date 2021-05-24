@@ -19,10 +19,10 @@
 		<div id="menu-nav" class="menu-nav">
 
 			<ul class="side-menu">
-				<li><a href="#"> <i class="fab fa-angellist"></i> <span
+				<li><a href="#"> <i class="side-icon fab fa-angellist"></i> <span
 						class="nav-label"> Dashboard</span>
 				</a></li>
-				<li><a href="#"> <i class="fas fa-anchor"></i> <span
+				<li><a href="#"> <i class="side-icon fas fa-anchor"></i> <span
 						class="nav-label"> Layouts</span>
 				</a></li>
 			</ul>
@@ -69,7 +69,21 @@
 	</div>
 	<script>
 	
-	  
+	  function updateSideNav(state){
+	      const menuNav = document.getElementById('menu-nav') 
+	      const fasFab = document.querySelectorAll(".side-menu .fab, .side-menu .fas");
+	      const navLabels = document.querySelectorAll(".nav-label");
+	      
+	      
+	      [...fasFab].forEach(elem => {
+				elem.style.cssText = state ? 'font-size: 1em;' : 'font-size: 1.25em;'  
+			});
+	      [...navLabels].forEach(elem => {
+				elem.style.cssText = state ? 'display: inline-block' : 'display: none'  
+			});
+	      
+	      menuNav.style.cssText = state ? 'flex: 0 0 250px;' : 'flex: 0 0 50px;'  
+	  }
       const menuNav = document.getElementById('menu-nav')
 
       function counter(state = true, action) {
@@ -84,11 +98,9 @@
       const store = Redux.createStore(counter)
 
       function render() {
-        var val =  store.getState()
-         menuNav.style.cssText = val ? 'flex: 0 0 250px; 1px solid red; height: 100vh;' : 'flex: 0 0 50px; 1px solid red; height: 100vh;'  
-
-        
-        console.log(val)
+          
+          updateSideNav(store.getState());
+     
       }
 
       render()
@@ -97,7 +109,7 @@
       document.getElementById('sideToggle')
         .addEventListener('click', function () {
           store.dispatch({ type: 'TOGGLE' })
-        })
+       })
 
     
 
