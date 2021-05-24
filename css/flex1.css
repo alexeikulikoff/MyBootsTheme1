@@ -31,6 +31,16 @@ body {
 	flex: 0 0 50px;
 }
 
+
+#btnControl:checked + .menu-nav > ul > li > a > span {
+	
+	display: none;
+}
+#btnControl:checked + .menu-nav > ul > li > a > i {
+	
+	font-size: 1.25em;
+}
+
 .side-menu {
 	list-style-type: none;
 	margin: 0;
