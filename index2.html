@@ -53,12 +53,7 @@
 			</div>
 			<div class="main">
 				main
-				<p>
-					Counter: <span id="value">0</span> times
-					<button id="increment">+</button>
-					<button id="decrement">-</button>
-
-				</p>
+			
 
 			</div>
 			<div class="footer">footer</div>
@@ -69,11 +64,10 @@
 	</div>
 	<script>
 	
-	  function updateSideNav(state){
+	  function toggleSideNav(state){
 	      const menuNav = document.getElementById('menu-nav') 
 	      const fasFab = document.querySelectorAll(".side-menu .fab, .side-menu .fas");
 	      const navLabels = document.querySelectorAll(".nav-label");
-	      
 	      
 	      [...fasFab].forEach(elem => {
 				elem.style.cssText = state ? 'font-size: 1em;' : 'font-size: 1.25em;'  
@@ -84,7 +78,7 @@
 	      
 	      menuNav.style.cssText = state ? 'flex: 0 0 250px;' : 'flex: 0 0 50px;'  
 	  }
-      const menuNav = document.getElementById('menu-nav')
+   
 
       function counter(state = true, action) {
         switch (action.type) {
@@ -94,15 +88,16 @@
             return state
         }
       }
-
-      const store = Redux.createStore(counter)
-
+   
       function render() {
           
-          updateSideNav(store.getState());
+          toggleSideNav(store.getState());
      
       }
-
+      
+      const menuNav = document.getElementById('menu-nav')
+      const store = Redux.createStore(counter)
+      
       render()
       store.subscribe(render)
 

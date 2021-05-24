@@ -1,46 +1,240 @@
-body{
-  margin: 0;
-  padding: 0;
+html, body {
+	height: 100%;
 }
 
-.container{
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  color: white;
+body {
+	margin: 0;
+	padding: 0;
 }
 
-.header{
-  flex: 0 0 50px;
-  background: #95A5A6;
+.my-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 100vh;
+}
+.content {
+	flex: 1 1 auto;
+	
+	border: 1px solid green;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.menu-nav {
+	flex: 0 0 250px;
+	border: 1px solid red;
+	height: 100vh;
 }
 
-.content-body{
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: row;
+#btnControl:checked + .menu-nav{
+	flex: 0 0 50px;
 }
 
-.content-body .content{
-  flex: 1 1 auto;
-  overflow: auto;
-  background: #1ABC9C;
+.side-menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 24px 0 0 0;
 }
 
-.content-body .sidenav{
-  order: -1;
-  flex: 0 0 100px;
-  overflow: auto;
-  background: #E74C3C;
+.side-menu>li>a {
+	color: #2e3436;
+	font-weight: 600;
+	padding-left: 14px;
+	text-decoration: none;
 }
 
-.content-body .ads{
-  flex: 0 0 100px;
-  overflow: auto;
-  background: #E67E22;
+.side-menu>li>a:hover {
+	color: #888a85;
 }
 
-.footer{
-  flex: 0 0 50px;
-  background: #34495E;
+.side-menu>li>a>.nav-label {
+	line-height: 2.1em;
 }
+
+
+
+.content .header {
+	flex: 0 0 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	background: #eeeeec;
+}
+
+.content .main {
+	flex: 1 1 auto;
+	background: #fce94f;
+}
+
+.content .footer {
+	flex: 0 0 30px;
+	background: #d3d7cf;
+}
+
+.navbar-control-left {
+	float: left;
+	padding: 4px 12px;
+}
+
+.navbar-control-right {
+	float: right;
+}
+
+.nav.navbar-control-right>li>a {
+	color: #999c9e;
+	padding: 20px 10px;
+	min-height: 50px;
+}
+
+.nvbar-control-button {
+	float: left;
+}
+
+.navbar-input-control {
+	display: blok;
+	height: 50px;
+	width: 100px;
+	float: left;
+}
+
+.input-control {
+	display: blok;
+	width: 100%;
+	border: none;
+	background: inherit;
+}
+
+.welcome {
+	color: green;
+}
+
+.logout {
+	color: red !important;
+}
+
+.input-control:focus {
+	outline: none;
+}
+
+#btnControl{
+	display: none;
+}
+
+
+@media screen and (max-width: 736px) {
+	
+	.navbar-input-control{
+		display: none;
+	}
+	
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+	.menu-nav {
+		flex: 0 0 50px;
+	}
+	.fas, .fab {
+		font-size: 1.25em;
+	}
+	.nav-label {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait and Landscape */
+/*
+@media only screen and (min-device-width: 375px) and (max-device-width:
+	667px) and (-webkit-min-device-pixel-ratio: 2) {
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+	.menu-nav {
+		flex: 0 0 50px;
+	}
+	.fas, .fab {
+		font-size: 1.25em;
+	}
+	.nav-label {
+		display: none;
+	}
+}
+
+/* Portrait and Landscape */
+/*
+@media screen and (device-width: 320px) and (device-height: 640px) and
+	(-webkit-device-pixel-ratio: 3) {
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+	.menu-nav {
+		flex: 0 0 50px;
+	}
+	.fas, .fab {
+		font-size: 1.25em;
+	}
+	.nav-label {
+		display: none;
+	}
+}
+/* Portrait */
+/*
+@media screen and (device-width: 320px) and (device-height: 640px) and
+	(-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+	.menu-nav {
+		flex: 0 0 50px;
+	}
+	.fas, .fab {
+		font-size: 1.25em;
+	}
+	.nav-label {
+		display: none;
+	}
+}
+/* Galaxy s5 */ 
+/* Landscape */
+/*
+
+@media screen and (device-width: 320px) and (device-height: 640px) and
+	(-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+	.nav.navbar-control-right>.welcome {
+		display: none;
+	}
+	.nav.navbar-control-right>li>a :not(.logout) {
+		display: none;
+	}
+	.menu-nav {
+		flex: 0 0 50px;
+	}
+	.fas, .fab {
+		font-size: 1.25em;
+	}
+	.nav-label {
+		display: none;
+	}
+}
+*/
