@@ -3,23 +3,38 @@
 
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flex Tutorial 2</title>
 
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/fontawesome/css/all.css">
 <link rel="stylesheet" href="/css/flex2.css">
-
+<script src="/js/redux.min.js"></script>
 
 </head>
 
 <body>
 
 	<div class="my-container">
-		<div class="menu-nav">11</div>
+		<div id="menu-nav" class="menu-nav">
+
+			<ul class="side-menu">
+				<li><a href="#"> <i class="fab fa-angellist"></i> <span
+						class="nav-label"> Dashboard</span>
+				</a></li>
+				<li><a href="#"> <i class="fas fa-anchor"></i> <span
+						class="nav-label"> Layouts</span>
+				</a></li>
+			</ul>
+
+
+
+		</div>
 		<div class="content">
 			<div class="header">
 				<div class="navbar-control-left">
-					<a class="nvbar-control-button btn btn-primary"> ... </a>
+					<a id="sideToggle" class="nvbar-control-button btn btn-primary">
+						... </a>
 				</div>
 				<div class="navbar-input-control">
 					<input type="text" placeholder="Search for something..."
@@ -27,24 +42,67 @@
 
 
 				</div>
-
-
 				<ul class="nav navbar-control-right">
-					<li>Welcome to My Theme.</li>
+					<li class="welcome">Welcome to My Theme.</li>
 					<li><a href="#"> <i class="fab fa-angellist"></i></a></li>
 					<li><a href="#"> <i class="fas fa-anchor"></i></a></li>
 					<li><a href="#"><i class="fas fa-bahai"></i></a></li>
-					<li><a href="#">Loguot</a></li>
+					<li><a href="#" class="logout">Loguot</a></li>
 
 				</ul>
 			</div>
-			<div class="main">main</div>
+			<div class="main">
+				main
+				<p>
+					Counter: <span id="value">0</span> times
+					<button id="increment">+</button>
+					<button id="decrement">-</button>
+
+				</p>
+
+			</div>
 			<div class="footer">footer</div>
 
 		</div>
 
 
 	</div>
+	<script>
+	
+	  
+      const menuNav = document.getElementById('menu-nav')
+
+      function counter(state = true, action) {
+        switch (action.type) {
+          case 'TOGGLE':
+            return state = !state;
+          default:
+            return state
+        }
+      }
+
+      const store = Redux.createStore(counter)
+
+      function render() {
+        var val =  store.getState()
+         menuNav.style.cssText = val ? 'flex: 0 0 250px; 1px solid red; height: 100vh;' : 'flex: 0 0 50px; 1px solid red; height: 100vh;'  
+
+        
+        console.log(val)
+      }
+
+      render()
+      store.subscribe(render)
+
+      document.getElementById('sideToggle')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'TOGGLE' })
+        })
+
+    
+
+    </script>
+
 
 </body>
 
