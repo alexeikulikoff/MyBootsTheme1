@@ -130,38 +130,29 @@ body {
 	display: none;
 }
 
-
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 468px) {
 	
-	.navbar-input-control{
+	.input-control{
 		display: none;
 	}
-	
+	.logout{
+		display: none;
+	}
 	.nav.navbar-control-right>.welcome {
 		display: none;
 	}
 	.nav.navbar-control-right>li>a :not(.logout) {
 		display: none;
 	}
-	.menu-nav {
+	#btnControl:checked + .menu-nav{
+		display: block;
 		flex: 0 0 50px;
 	}
-	.fas, .fab {
-		font-size: 1.25em;
-	}
-	.nav-label {
+	.menu-nav{
 		display: none;
 	}
-}
+}	
 
-@media screen and (max-width: 1024px) {
-	.nav.navbar-control-right>.welcome {
-		display: none;
-	}
-	.nav.navbar-control-right>li>a :not(.logout) {
-		display: none;
-	}
-}
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
