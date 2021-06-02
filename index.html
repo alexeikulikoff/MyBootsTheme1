@@ -6,6 +6,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flex Tutorial 2</title>
 
+<link rel="stylesheet" href="/metismenujs/dist/metismenujs.min.css">
+<!-- OR -->
+
+<script src="/metismenujs/docs/assets/js/metismenujs.js"></script>
+<!-- OR -->
+
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/fontawesome/css/all.css">
 <link rel="stylesheet" href="/css/flex1.css">
@@ -18,13 +24,28 @@
 	<div class="my-container">
 		<input type="checkbox" id="btnControl" />
 		<div id="menu-nav" class="menu-nav">
-			<ul class="side-menu">
-				<li><a href="#"> <i class="side-icon fab fa-angellist"></i>
-						<span class="nav-label"> Dashboard</span>
-				</a></li>
-				<li><a href="#"> <i class="side-icon fas fa-anchor"></i> <span
-						class="nav-label"> Layouts</span>
-				</a></li>
+
+			<ul class="side-menu metismenu" id="menu">
+				<li class="suka"><a href="#0">Menu1</a>
+					<ul class="pizda">
+						<li><a href="#1">Submenu11</a></li>
+						<li class="1"><a href="#2"> Submenu13</a>
+							<ul>
+								<li><a href="#3">Submenu31</a>
+									<ul>
+										<li><a href="#10">Submenu24</a></li>
+										<li><a href="#11">Submenu24</a></li>
+									</ul></li>
+
+								<li><a href="#4">Submenu31</a></li>
+
+							</ul></li>
+					</ul></li>
+				<li><a href="#5">Menu 2</a>
+					<ul>
+						<li><a href="#6">Submenu21</a></li>
+						<li><a href="#7">Submenu22</a></li>
+					</ul></li>
 			</ul>
 
 
@@ -58,7 +79,12 @@
 
 
 	</div>
+	<script>
 
+	const mm = new MetisMenu("#menu");
+	//mm.on('show.metisMenu', f => console.log(f) );
+
+</script>
 </body>
 
 </html>

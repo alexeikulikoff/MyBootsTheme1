@@ -1,0 +1,1 @@
+{"version":3,"file":"metismenujs.esm.js","sources":["../src/index.ts"],"sourcesContent":["\n\nclass MyMenu{\n\n\tconstructor(element: Element | string) {\n\t\tconsole.log('init');\n\t}\t\t\n}\n\nexport default MyMenu;"],"names":[],"mappings":";;;;;;;;AAEA,MAAM,MAAM;IAEX,YAAY,OAAyB;QACpC,OAAO,CAAC,GAAG,CAAC,MAAM,CAAC,CAAC;KACpB;;;;;"}
