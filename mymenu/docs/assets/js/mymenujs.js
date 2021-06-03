@@ -48,6 +48,15 @@
                 return accumulator.concat(node);
             }, []);
         }
+        buildNode(array, p) {
+            return array.filter(a => a.q === p).reduce((accumulator, key) => {
+                const node = { p: key.p, name: key.name, q: key.q, nodes: [] };
+                if (array.filter(f => f.q === key.p).length > 0) {
+                    node.nodes = this.buildNode(array, key.p);
+                }
+                return accumulator.concat(node);
+            }, []);
+        }
         init() {
             console.log('init');
             this.array.push({ p: '1', name: 'root0', q: '0' });
@@ -57,18 +66,7 @@
             this.array.push({ p: '5', name: 'root5', q: '1' });
             this.array.push({ p: '6', name: 'root6', q: '4' });
             this.array.push({ p: '7', name: 'root7', q: '4' });
-            let z0 = '0';
-            const res = this.array.filter(s => s.q === z0).reduce((a, b, index, arr) => {
-                const n = { p: b.p, name: b.name, q: b.q, nodes: [] };
-                if (this.hasChild(this.array, b.p)) {
-                    console.log('has child');
-                    this.array.filter(s => s.q === b.p).forEach(f => {
-                        n.nodes.push({ p: f.p, name: f.name, q: f.q, nodes: [] });
-                    });
-                }
-                a.nodes.push(n);
-                return a;
-            }, this.node);
+            const res = this.buildNode(this.array, '0');
             console.log(res);
         }
     }
