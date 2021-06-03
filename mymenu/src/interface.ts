@@ -12,3 +12,6 @@ export interface Item{
 	name: String;
 	q : String;
 }
+export interface IStore{
+	value: number;
+}

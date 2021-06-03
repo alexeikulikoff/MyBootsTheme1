@@ -1,25 +1,67 @@
-import { Node0, TodoItemNode } from "./constant";
-import { Item } from "./interface";
+import { TodoItemNode } from "./constant";
+import { IStore, Item } from "./interface";
 import { Node } from "./interface";
 
+import { createStore } from 'redux';
+
+
+const initialState: IStore = {
+	value: 0
+};
+
+const store = createStore(counterReducer);
+
+
+function counterReducer(state = initialState, action: { type: any; }) {
+	// Reducers usually look at the type of action that happened
+	// to decide how to update the state
+	switch (action.type) {
+		case "counter/incremented":
+			return { ...state, value: state.value + 1 };
+		case "counter/decremented":
+			return { ...state, value: state.value - 1 };
+		default:
+			// If the reducer doesn't care about this action type,
+			// return the existing state unchanged
+			return state;
+	}
+}
 
 
 class MyMenu {
 
 	private array: any[] = [];
-
-	private node: Node = Node0;
-
+	
+	
 
 	constructor(element: Element | string) {
-
+       
+		
 		this.init();
+
+		this.render();
+
+		store.subscribe(this.render);
+		
+		const btn1 = document.getElementById("increment")!;
+			btn1.addEventListener("click", function() {
+				store.dispatch({ type: "counter/incremented" });
+			});
+
+		document
+			.getElementById("decrement")!
+			.addEventListener("click", function() {
+				store.dispatch({ type: "counter/decremented" });
+			});
+
+
 	}
 
-	private hasChild = (array: Item[], p: String) => {
-		return array.filter(s => s.q === p).length > 0;
+	render() {
+		const state = store.getState();
+		const valueEl = document.getElementById("value")!;
+		valueEl.innerHTML = state.value.toString();
 	}
-
 	buildFileTree(obj: { [key: string]: any }, level: number): TodoItemNode[] {
 
 
@@ -44,17 +86,31 @@ class MyMenu {
 
 	private buildNode(array: Item[], p: String): Node[] {
 
-		return array.filter(a=>a.q === p).reduce<Node[]>((accumulator, key: Item) => {
+		return array.filter(a => a.q === p).reduce<Node[]>((accumulator, key: Item) => {
 			const node: Node = { p: key.p, name: key.name, q: key.q, nodes: [] };
-			if (array.filter(f => f.q === key.p).length > 0){
+			if (array.filter(f => f.q === key.p).length > 0) {
 				node.nodes = this.buildNode(array, key.p);
 			}
-		
-			return accumulator.concat(node);	
+
+			return accumulator.concat(node);
 		}, [])
 
 	}
+	private printNode(node: Node[]): string {
 
+		let ul: string = "<ul>";
+		node.forEach(n => {
+
+			ul = ul.concat(`<li id='${n.p}'>${n.name}</li>`);
+			if (n.nodes.length > 0) {
+				ul = ul.concat(`<li>`);
+				ul = ul.concat(this.printNode(n.nodes));
+			}
+		})
+		ul = ul.concat(`</ul>`);
+		return ul;
+
+	}
 	private init(): void {
 		console.log('init');
 
@@ -71,9 +127,15 @@ class MyMenu {
 		let z0: String = '0';
 
 
-		const res: Node[] = this.buildNode(this.array, '0');
+		const node: Node[] = this.buildNode(this.array, '0');
 
-		console.log(res);
+		const print = this.printNode(node);
+
+		const element = document.getElementById("list")!;
+		element.innerHTML = print;
+
+
+		console.log(print);
 	}
 }
 
