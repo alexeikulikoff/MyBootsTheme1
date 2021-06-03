@@ -12,7 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@reduxjs/toolkit": "^1.5.1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
     "redux": "^4.1.0"
